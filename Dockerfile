@@ -21,4 +21,8 @@ RUN chmod +x /tmp/install_lma_analysis.sh
 RUN /tmp/install_lma_analysis.sh
 RUN rm /tmp/install_lma_analysis.sh
 
+# Configure LMA user
+RUN useradd -m lma
+USER lma
+
 CMD ["/bin/bash"]
