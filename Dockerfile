@@ -15,6 +15,9 @@ RUN apt-get install libgeos-dev -y
 # Install lmatools
 RUN pip3 install git+https://github.com/deeplycloudy/lmatools.git --break-system-packages
 
+# Install glmtools
+RUN pip3 install git+https://github.com/deeplycloudy/glmtools.git --break-system-packages
+
 # Install lma_analysis
 COPY install_lma_analysis.sh /tmp/install_lma_analysis.sh
 RUN chmod +x /tmp/install_lma_analysis.sh
