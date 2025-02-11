@@ -15,7 +15,7 @@ RUN apt-get install libgeos-dev -y
 FROM os_setup AS lma_scripts
 
 # Install lmatools
-RUN pip3 install git+https://github.com/deeplycloudy/lmatools.git --break-system-packages
+RUN pip3 install git+https://github.com/XR-at-CISESS/lmatools.git --break-system-packages
 
 # Install glmtools
 RUN pip3 install git+https://github.com/deeplycloudy/glmtools.git --break-system-packages
