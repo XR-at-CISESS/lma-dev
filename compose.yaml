@@ -1,3 +1,9 @@
 services:
-  lma:
+  lma_dev:
     build: .
+    image: lma_dev
+    volumes:
+      - lma_home:/home/lma
+
+volumes:
+  lma_home:
