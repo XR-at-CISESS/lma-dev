@@ -39,7 +39,7 @@ RUN chmod +x /usr/local/bin/initialize_lma.sh
 # Set environment variables
 ENV LMA_DATA_DIR="/home/lma/lma_data"
 ENV LMA_OUT_DIR="/home/lma/lma_out"
-ENV LMA_SHAPE_DIR="/usr/share/lma_shapes"
+ENV LMA_SHAPES_DIR="/usr/share/lma_shapes"
 
 # Configure LMA user
 RUN useradd -m lma
