@@ -12,6 +12,9 @@ RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:ubuntugis/ppa
 RUN apt-get install libgeos-dev -y
 
+# Install fonts
+RUN apt-get install fonts-paratype -y
+
 FROM os_setup AS lma_scripts
 
 # Install lmatools
