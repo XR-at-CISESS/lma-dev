@@ -31,6 +31,7 @@ RUN rm /tmp/install_lma_analysis.sh
 
 # Copy shapes
 COPY ./shapes /usr/share/lma_shapes
+RUN chmod a+r /usr/share/lma_shapes
 
 # Copy bash initialization script
 COPY initialize_lma.sh /usr/local/bin/initialize_lma.sh
