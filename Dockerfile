@@ -29,13 +29,17 @@ RUN chmod +x /tmp/install_lma_analysis.sh
 RUN /tmp/install_lma_analysis.sh
 RUN rm /tmp/install_lma_analysis.sh
 
-# Copy initialization script
+# Copy shapes
+COPY ./shapes /usr/share/lma_shapes
+
+# Copy bash initialization script
 COPY initialize_lma.sh /usr/local/bin/initialize_lma.sh
 RUN chmod +x /usr/local/bin/initialize_lma.sh
 
 # Set environment variables
 ENV LMA_DATA_DIR="/home/lma/lma_data"
 ENV LMA_OUT_DIR="/home/lma/lma_out"
+ENV LMA_SHAPE_DIR="/usr/share/lma_shapes"
 
 # Configure LMA user
 RUN useradd -m lma
