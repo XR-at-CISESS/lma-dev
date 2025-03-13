@@ -1,0 +1,1 @@
+docker build . --no-cache-filter lma_scripts -t lma-dev

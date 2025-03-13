@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # A script to assist in utilizing the LMA developer container.
 
 if [[ $# -eq 1 ]]
