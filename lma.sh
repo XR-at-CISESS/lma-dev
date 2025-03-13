@@ -8,4 +8,4 @@ else
     DOCKER_MOUNT_PATH="$(pwd)"
 fi
 
-docker compose run -v $DOCKER_MOUNT_PATH:/host --rm lma_dev 
+docker compose run -v $DOCKER_MOUNT_PATH:/host --rm lma-dev

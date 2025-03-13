@@ -1,30 +1,24 @@
 FROM ubuntu:latest AS os_setup
 
-# Install Python
-RUN apt-get update -y
-RUN apt-get install python3 python3-pip python3-venv -y
-
 # Install utilities
-RUN apt-get install git wget vim tmux -y
-
-# Install GEOS Library
-RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:ubuntugis/ppa
-RUN apt-get install libgeos-dev -y
-
-# Install fonts
-RUN apt-get install fonts-paratype -y
+RUN apt-get update -y && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:ubuntugis/ppa && \
+    # Install Python and utilities
+    apt-get install -y \
+    python3 python3-pip python3-venv \
+    git wget vim tmux \
+    libgeos-dev fonts-paratype && \
+    # Cleanup apt cache
+    rm -rf /var/lib/apt/lists/*
 
 FROM os_setup AS lma_scripts
 
 # Install lmatools
-RUN pip3 install git+https://github.com/XR-at-CISESS/lmatools.git --break-system-packages
-
-# Install glmtools
-RUN pip3 install git+https://github.com/deeplycloudy/glmtools.git --break-system-packages
-
-# Install lma_data
-RUN pip3 install git+https://github.com/XR-at-CISESS/lma_data.git --break-system-packages
+RUN pip3 install --no-cache-dir --break-system-packages \
+    git+https://github.com/XR-at-CISESS/lmatools.git \
+    git+https://github.com/deeplycloudy/glmtools.git \
+    git+https://github.com/XR-at-CISESS/lma_data.git
 
 # Install lma_analysis
 COPY ./scripts/install_lma_analysis.sh /tmp/install_lma_analysis.sh
